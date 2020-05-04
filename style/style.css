@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans-Regular.ttf");
+  src: url("fonts/OpenSans-Regular.eot");
+  src: url("fonts/OpenSans-Regular.woff");
+  src: url("fonts/OpenSans-Regular.woff2");
+}
+.site__container{  
+  width: 1024px;
+  margin: auto;
+}
+
+body{
+  font-family: "OpenSans", sans-serif;
+}
+
+.header {
+  display: flex;
+  width: auto;
+}
+#logo{
+  margin: auto 30px;
+}
+nav {
+  margin-right: 13px;
+  margin-left: auto;
+}
+.header nav li{
+  list-style-type: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0 15px;
+  margin-bottom: 2px;
+}
+h1{
+  font-size: 50px;
+
+}
+.banner{
+  text-align: left;
+  background: url(../content/banner-photo.jpg) no-repeat #0e1a74;
+  background-size: cover;
+  height: 600px;
+}
+.text__wrapper{
+  margin-left: 30px;
+  width: 550px;
+  white-space: pre;
+  padding-top: 50px;
+}
+
+.banner h1 {  
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  line-height: 51px;
+  margin: 0px;
+  padding: 0px;
+}
+.banner h3 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    color: rgb(255, 255, 255); 
+    font-weight: lighter;
+}
+
+
+.red__button{
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  border-radius: 5%;
+  text-shadow: 0px 0px 0px transparent;
+  background: #ef5b4c;
+  width: 210px;
+  height: 40px;
+  margin: 0px 30px;
+}
+.red__button a{
+  color: white;
+  width: 100%;
+  font-size: 1.25em;
+}
+
+.sign{
+  margin-top: 20px;
+  color: #ef5b4c;
+  font-weight: bold;
+}
+
+
+.about__me__wrapper h1, .red__button a{
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.graphic__and__article{
+  width: 100%;
+  margin-top: 15px;
+}
+.graphic__and__article svg{
+  width: 33%;
+  padding-left: 55px;
+}
+.graphic__and__article svg, .graphic__and__article__text{
+  display: inline-block;
+  margin-top: 0;
+  vertical-align: top;
+}
+
+.graphic__and__article__text{
+  width: 55%;
+  text-align: justify;
+  font-size: 17px;
+  float: right;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  margin-right: 10px;
+}
+.graphic__and__article__text h3{
+  font-size: 25px;
+}
+
+.cls-1 {
+   fill: #212529;      
+}
+     
+.cls-1, .cls-2, .cls-3 {        
+  fill-rule: evenodd;      
+}
+      
+.cls-2 {        
+  fill: #1b4a8a;      
+}
+      
+.cls-3 {        
+  fill: #fff;      
+}
+
+
+.users{
+  margin-top: 10px;
+  background: #f9f9f3;
+  height: 1100px;
+  text-align: center;
+}
+.users h1{
+  margin-bottom: 0px;
+}
+.users h4{
+  margin-top: 7px;
+}
