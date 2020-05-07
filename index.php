@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width">
   <title>Testtask</title>
     <link href="style/style.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
+
   <main class="site__container">
   <header class="header">
     <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="135" height="20" viewBox="0 0 135 20">
@@ -17,7 +19,7 @@
     <nav>
       <ul>
         <li>About me</li>
-        <li>Relationship</li>
+        <li>Relationships</li>
         <li>Requiremants</li>
         <li>Users</li>
         <li>Sign Up</li>
@@ -198,7 +200,62 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
       <br />
       <h1>Our cheerful users</h1>
       <h4>Attention! Sorting users by registration date.</h4>
+      <div id="app">
+          <div class="users__table">
+              <div class="user__info" v-for="item in message">
+                  <div  v-for="elem in item">
+                      <img class="user__photo" v-bind:src="elem.photo" width="70px" height="70px" />
+                      <h2 class="inline" >{{ elem.name }}</h3>
+                          <p class="inline">{{ elem.position }}</p>
+                          <p class="inline"> {{ elem.email }} </p>
+                          <p class="inline"> {{ elem.phone }} </p>
+                  </div>
+              </div>
+          </div>
+          <!--<p> {{ message }} </p><br />-->
+      </div>
+
   </section>
   </main>
+
+  <script src="scripts/vue.js" ></script>
+  <script src="scripts/axios.min.js" ></script>
+  <!--<script src="scripts/main.js" type="javascript" ></script>-->
+
+  <script type="text/javascript">
+      var us = new Vue({
+          el: '#app',
+          data() {
+              return {
+                  message: "Не удается загрузить данные",
+                  info: null,
+                  name: null,
+              };
+          },
+          mounted() {
+              axios
+                  .get('https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=100')
+                  .then(response => (this.info = response))
+                  .then((info)=>{
+                      var users = info.data.users;
+                      var userArr = [];
+                      for(elem in users){
+                          userArr.push([elem, users[elem]]);
+                      }
+                      userArr.sort((a, b)=>{
+                          return a.registration_timestamp - b.registration_timestamp;
+                      });
+                      for(i = 0; i < userArr.length; i++){
+                          userArr[i].shift();
+                      }
+                      this.message = userArr;
+
+                      console.log(this.message);
+                  });
+          },
+
+      });
+
+  </script>
 </body>
 </html>
