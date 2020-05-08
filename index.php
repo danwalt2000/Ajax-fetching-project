@@ -181,7 +181,7 @@ in the banner area on the different screens</h3>
           <p>
 If 3rd party css/javascript libraries are added to the project via bower/npm/yarn you will get bonus points. If you use any task runner (gulp/webpack) you will get bonus points as well. Slice service directory page PSD mockup into HTML5/CSS3.
           </p>
-        <p class="sign">Sing up now</p>
+        <p class="sign">Sign up now</p>
         </div>
       </div>
       
@@ -192,7 +192,7 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
       <br />
       <br />
   </section>
-  <section class="users">
+    <section class="users">
       <br />
       <br />
       <br />
@@ -205,57 +205,64 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
               <div class="user__info" v-for="item in message">
                   <div  v-for="elem in item">
                       <img class="user__photo" v-bind:src="elem.photo" width="70px" height="70px" />
-                      <h2 class="inline" >{{ elem.name }}</h3>
-                          <p class="inline">{{ elem.position }}</p>
-                          <p class="inline"> {{ elem.email }} </p>
-                          <p class="inline"> {{ elem.phone }} </p>
+                      <h2 class="inline" v-on:mouseover="onDivInput" v-bind:title="title">{{ elem.name }}</h3>
+                      <p class="inline" v-on:mouseover="onDivInput" v-bind:title="title">{{ elem.position }}</p>
+                      <p class="inline" v-on:mouseover="onDivInput" v-bind:title="title"> {{ elem.email }} </p>
+                      <p class="inline" v-on:mouseover="onDivInput" v-bind:title="title"> {{ elem.phone }} </p>
                   </div>
               </div>
+              <button id="showMoreBut" class="red__button" @click="showMore"><a>Show more</a></button>
           </div>
-          <!--<p> {{ message }} </p><br />-->
       </div>
 
-  </section>
+    </section>
+    <section class="registration">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1>Register to get a work</h1>
+        <div class="text__and__form__wrapper">
+          <h4 class="attention">Attention! After successful registration and alert, update the list of users in the block from the top</h4>
+          <form>
+              <h4 class="descript">Name</h4>
+              <input type="text" placeholder="Your Name">
+              <h4 class="descript">Email</h4>
+              <input type="text" placeholder="Your Email">
+              <h4 class="descript">Phone number</h4>
+              <input type="text" placeholder="+380 XX XXX XX XX">
+              <p class="small__text">Enter phone number in open format</p>
+              <h4 class="descript">Select your position</h4>
+
+              <label class="container" id="first__cont">Frontend developer
+                  <input type="radio" checked="checked" name="radio">
+                  <span class="checkmark"></span>
+              </label>
+              <label class="container">Backend developer
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+              </label>
+              <label class="container">Designer
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+              </label>
+              <label class="container">QA
+                  <input type="radio" name="radio">
+                  <span class="checkmark"></span>
+              </label>
+              <h4 class="descript">Photo</h4>
+              <label for="myfile" class="label"></label>
+              <input type="text" name="myfile" id="myfile" value="Upload your photo" >
+              <button id="sign__up" class="red__button" ><a>Sign up now</a></button>
+          </form>
+        </div>
+    </section>
   </main>
 
   <script src="scripts/vue.js" ></script>
   <script src="scripts/axios.min.js" ></script>
-  <!--<script src="scripts/main.js" type="javascript" ></script>-->
 
-  <script type="text/javascript">
-      var us = new Vue({
-          el: '#app',
-          data() {
-              return {
-                  message: "Не удается загрузить данные",
-                  info: null,
-                  name: null,
-              };
-          },
-          mounted() {
-              axios
-                  .get('https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=100')
-                  .then(response => (this.info = response))
-                  .then((info)=>{
-                      var users = info.data.users;
-                      var userArr = [];
-                      for(elem in users){
-                          userArr.push([elem, users[elem]]);
-                      }
-                      userArr.sort((a, b)=>{
-                          return a.registration_timestamp - b.registration_timestamp;
-                      });
-                      for(i = 0; i < userArr.length; i++){
-                          userArr[i].shift();
-                      }
-                      this.message = userArr;
-
-                      console.log(this.message);
-                  });
-          },
-
-      });
-
-  </script>
+  <script src="scripts/main.js" type="text/javascript"></script>
 </body>
 </html>

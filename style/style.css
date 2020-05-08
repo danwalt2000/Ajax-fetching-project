@@ -145,11 +145,10 @@ h1{
   fill: #fff;      
 }
 
-
 .users{
   margin-top: 10px;
   background: #f9f9f3;
-  height: 1100px;
+  height: auto;
   text-align: center;
 }
 .users h1{
@@ -164,18 +163,174 @@ h1{
 }
 
 .user__info{
+  vertical-align: top;
+  cursor: pointer;
   display: inline-block;
   width: 250px;
-  margin: 55px 40px 15px 40px;
+  margin: 55px 40px 25px 40px;
 
 }
 
 .inline{
   text-align: center;
   width: 80%;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
+.user__info p{
+  line-height: 30px;
+  margin: 0px;
+}
+
 .user__photo{
   border-radius: 50%;
   margin: auto;
+}
+.hidden{
+  display: none;
+}
+#showMoreBut{
+  margin-top: 0px;
+  margin-bottom: 160px;
+}
+
+.registration{
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+.registration h1{
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+.text__and__form__wrapper{
+  width: 90%;
+  margin: auto;
+}
+.attention, .registration h4{
+  font-weight: normal;
+  margin: auto;
+  margin-top: 10px;
+}
+.attention{
+  width: 95%;
+}
+.registration form{
+  margin: 30px auto;
+
+}
+.registration input{
+  width: 100%;
+  height: 32px;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: solid 0.1px lightgray;
+  text-indent: 10px;
+}
+.registration input::placeholder{
+  color: grey;
+  width: 80%;
+  font-size: 110%;
+}
+.descript{
+  text-align: left;
+  font-weight: bold;
+}
+.small__text{
+  margin-top: 5px;
+  text-align: left;
+  font-size: 13px;
+}
+#radiotable{
+  border: solid;
+  width: 50%;
+  vertical-align: middle;
+}
+#radiotable input{
+  margin: 0 0;
+  display: inline-block;
+  width: auto;
+  text-align: left;
+  vertical-align: middle;
+ }
+#radiotable input:checked {
+  background-color: #2196F3;
+}
+#radiotable label{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+.container {
+  margin-top: 10px;
+  text-align: left;
+  display: block;
+  position: relative;
+  padding-left: 23px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 14px;
+  width: 14px;
+  background-color: white;
+  border: solid grey 0.05px;
+  border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+  border: #2196F3;
+  height: 16px;
+  width: 16px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+
+.container .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+#first__cont{
+  margin-top: 20px;
+}
+#sign__up{
+  margin: 30px auto;
 }
