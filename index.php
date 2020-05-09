@@ -192,7 +192,8 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
       <br />
       <br />
   </section>
-    <section class="users">
+  <div id="app">
+   <section class="users">
       <br />
       <br />
       <br />
@@ -200,7 +201,8 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
       <br />
       <h1>Our cheerful users</h1>
       <h4>Attention! Sorting users by registration date.</h4>
-      <div id="app">
+
+        <div id="us">
           <div class="users__table">
               <div class="user__info" v-for="item in message">
                   <div  v-for="elem in item">
@@ -213,11 +215,11 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
               </div>
               <button id="showMoreBut" class="red__button" @click="showMore"><a>Show more</a></button>
           </div>
-      </div>
+        </div>
+   </section>
 
-    </section>
+
     <section class="registration">
-        <br />
         <br />
         <br />
         <br />
@@ -225,13 +227,13 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
         <h1>Register to get a work</h1>
         <div class="text__and__form__wrapper">
           <h4 class="attention">Attention! After successful registration and alert, update the list of users in the block from the top</h4>
-          <form>
+          <form name="reg" id="reg">
               <h4 class="descript">Name</h4>
-              <input type="text" placeholder="Your Name">
+              <input type="text" placeholder="Your Name" required>
               <h4 class="descript">Email</h4>
-              <input type="text" placeholder="Your Email">
+              <input type="text" placeholder="Your Email" required>
               <h4 class="descript">Phone number</h4>
-              <input type="text" placeholder="+380 XX XXX XX XX">
+              <input type="text" placeholder="+380 XX XXX XX XX" required>
               <p class="small__text">Enter phone number in open format</p>
               <h4 class="descript">Select your position</h4>
 
@@ -251,13 +253,28 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
                   <input type="radio" name="radio">
                   <span class="checkmark"></span>
               </label>
+
+
               <h4 class="descript">Photo</h4>
-              <label for="myfile" class="label"></label>
-              <input type="text" name="myfile" id="myfile" value="Upload your photo" >
-              <button id="sign__up" class="red__button" ><a>Sign up now</a></button>
+              <label class="file">
+                  <input type="file" id="file" aria-label="Upload your photo" required>
+                  <span class="file-custom"></span>
+              </label>
+              <br />
+
+              <button type="submit" id="sign__up" class="red__button" ><a>Sign up now</a></button>
           </form>
         </div>
+
     </section>
+  </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <footer>
+          <h3>© abz.agency specially for the test task</h3>
+      </footer>
   </main>
 
   <script src="scripts/vue.js" ></script>

@@ -22,14 +22,14 @@ var us = new Vue({
                 userArr.sort((a, b)=>{
                     return a.registration_timestamp - b.registration_timestamp;
                 });
-                for(i = 0; i < userArr.length; i++){
+                for(let i = 0; i < userArr.length; i++){
                     userArr[i].shift();
                 }
                 this.base = userArr;
                 this.message = userArr.slice(0, 6);
 
                 //console.log(this.message);
-            });
+            }).catch(error => console.log(error));
     },
     methods:{
         onDivInput: function(e) {
