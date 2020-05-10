@@ -33,7 +33,7 @@ nav {
   margin: 0 15px;
   margin-bottom: 2px;
 }
-.header nav li:hover{
+.header nav li:hover, .alert{
   color: #ef5b4c;
 }
 .header nav li:active{
@@ -185,14 +185,17 @@ h1{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.user__info h2{
+  margin: 10px;
+}
 .user__info p{
-  line-height: 30px;
+  line-height: 24px;
   margin: 0px;
 }
 
 .user__photo{
   border-radius: 50%;
-  margin: auto;
+  margin: 0 auto;
 }
 .hidden{
   display: none;
@@ -205,13 +208,17 @@ h1{
 .registration{
   text-align: center;
   margin: auto;
-  margin-top: 5px;
+  margin-top: 10px;
   width: 50%;
 }
 .registration h1{
   font-weight: bold;
   margin-bottom: 0px;
 }
+#reg{
+  margin-top: 35px;
+}
+
 .text__and__form__wrapper{
   width: 90%;
   margin: auto;
@@ -238,6 +245,9 @@ h1{
 }
 .registration input:focus{
   box-shadow: 0 0 5px #29B0D9;
+}
+.error{
+  box-shadow: 0 0 5px #ef5b4c;
 }
 .registration input::placeholder{
   color: grey;
@@ -377,6 +387,7 @@ h1{
 }
 
 .file-custom:before {
+  font-weight: normal;
   position: absolute;
   top: -.075rem;
   right: -.075rem;
@@ -387,12 +398,16 @@ h1{
   height: 2.5rem;
   padding: .5rem 1rem;
   line-height: 1.5;
-  color: #555;
-  background-color: #eee;
+  color: rgb(33, 37, 41);
+  background-color: #f9f9f3;
   border: .075rem solid #ddd;
   border-radius: 0 .25rem .25rem 0;
   box-sizing: border-box;
 }
+
+
+
+
 
 .file-custom:after {
   content: "Upload your photo";
@@ -401,7 +416,6 @@ h1{
 #sign__up{
   margin: 20px auto;
 }
-
 
 
 footer{

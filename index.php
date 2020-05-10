@@ -219,54 +219,62 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
    </section>
 
 
-    <section class="registration">
-        <br />
-        <br />
-        <br />
-        <br />
-        <h1>Register to get a work</h1>
-        <div class="text__and__form__wrapper">
-          <h4 class="attention">Attention! After successful registration and alert, update the list of users in the block from the top</h4>
-          <form name="reg" id="reg">
-              <h4 class="descript">Name</h4>
-              <input type="text" placeholder="Your Name" required>
-              <h4 class="descript">Email</h4>
-              <input type="text" placeholder="Your Email" required>
-              <h4 class="descript">Phone number</h4>
-              <input type="text" placeholder="+380 XX XXX XX XX" required>
-              <p class="small__text">Enter phone number in open format</p>
-              <h4 class="descript">Select your position</h4>
+      <section class="registration">
+          <br />
+          <br />
+          <br />
+          <br />
+          <h1>Register to get a work</h1>
+          <div class="text__and__form__wrapper">
+              <h4 class="attention">Attention! After successful registration and alert, update the list of users in the block from the top</h4>
+              <form name="reg" id="reg" @submit="valid">
+                  <h4 class="descript">Name</h4>
+                  <input id="name" type="text" placeholder="Your Name" minlength="2" maxlength="60" required>
 
-              <label class="container" id="first__cont">Frontend developer
-                  <input type="radio" checked="checked" name="radio">
-                  <span class="checkmark"></span>
-              </label>
-              <label class="container">Backend developer
-                  <input type="radio" name="radio">
-                  <span class="checkmark"></span>
-              </label>
-              <label class="container">Designer
-                  <input type="radio" name="radio">
-                  <span class="checkmark"></span>
-              </label>
-              <label class="container">QA
-                  <input type="radio" name="radio">
-                  <span class="checkmark"></span>
-              </label>
+                  <h4 class="descript">Email</h4>
+                  <p id='errorEmail' class="hidden small__text alert" >Error</p>
+                  <input id="email" v-bind:class="{ error: isErrorEmail }" type="text" placeholder="Your Email" minlength="2" maxlength="100" required>
+                  <p id='errorPhone' class="small__text alert" v-bind:class="{ hidden: isHiddenEmailError }" >Error</p>
+
+                  <h4 class="descript">Phone number</h4>
+                  <input type="text" id="phone" v-bind:class="{ error: isErrorPhone }" maxlength="13" placeholder="+380 XX XXX XX XX" required>
+                  <p id='errorPhone' class="small__text alert" v-bind:class="{ hidden: isHiddenPhoneError }" >Error</p>
+                  <p class="small__text">Enter phone number in open format</p>
 
 
-              <h4 class="descript">Photo</h4>
-              <label class="file">
-                  <input type="file" id="file" aria-label="Upload your photo" required>
-                  <span class="file-custom"></span>
-              </label>
-              <br />
+                  <h4 class="descript">Select your position</h4>
+                  <div id="radioInput">
+                      <label class="container" id="first__cont" v-bind:id='position[0].id' > {{ position[0].name }}
+                          <input type="radio" checked="checked" name="radio">
+                          <span class="checkmark"></span>
+                      </label>
+                      <label class="container" v-bind:id='position[1].id' > {{ position[1].name }}
+                          <input type="radio" name="radio">
+                          <span class="checkmark"></span>
+                      </label>
+                      <label class="container" v-bind:id='position[2].id' >{{ position[2].name }}
+                          <input type="radio" name="radio">
+                          <span class="checkmark"></span>
+                      </label>
+                      <label class="container" v-bind:id='position[3].id' > {{ position[3].name }}
+                          <input type="radio" name="radio">
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
 
-              <button type="submit" id="sign__up" class="red__button" ><a>Sign up now</a></button>
-          </form>
-        </div>
+                  <h4 class="descript">Photo</h4>
+                  <label  class="file">
+                      <input  type="file" id="file" @change="imgLoad" aria-label="Upload your photo" >
+                      <span v-bind:class="{ error: isErrorFile }" id="file-custom" class="file-custom"></span>
+                      <p id='errorFile' class="small__text alert" v-bind:class="{ hidden: isHiddenFileError }" >Minimum size of photo 70x70px. The photo format must be jpeg/jpg type. The photo size must not be greater than 5 Mb</p>
+                  </label>
+                  <br />
 
-    </section>
+                  <button type="submit" id="sign__up" class="red__button" ><a>Sign up now</a></button>
+              </form>
+          </div>
+
+      </section>
   </div>
       <br />
       <br />
@@ -276,10 +284,10 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
           <h3>© abz.agency specially for the test task</h3>
       </footer>
   </main>
-
+  <script src="scripts/jQuery.js" type="text/javascript"></script>
   <script src="scripts/vue.js" ></script>
   <script src="scripts/axios.min.js" ></script>
-
+  <script src="scripts/valid.js" type="text/javascript"></script>
   <script src="scripts/main.js" type="text/javascript"></script>
 </body>
 </html>
