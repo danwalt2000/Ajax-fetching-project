@@ -3,6 +3,30 @@ var patternEmail = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|
 
 var errorPhone = document.getElementById("errorPhone");
 var errorEmail = document.getElementById("errorEmail");
+var wid, hei;
+
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+var closeModalWin = document.getElementById('closeModalWin');
+var showModalWin = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+closeModalWin.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 
 
 var us = new Vue({
@@ -13,6 +37,7 @@ var us = new Vue({
             info: null,
             name: null,
             title: null,
+            position: null,
             base: null,
             token: null,
             isHiddenPhoneError: true,
@@ -21,8 +46,6 @@ var us = new Vue({
             isErrorEmail: false,
             isErrorPhone: false,
             isErrorFile: false,
-            imgWid: null,
-            imgHei: null,
         };
     },
     mounted() {
@@ -58,17 +81,14 @@ var us = new Vue({
 
     methods:{
         imgLoad: function(){
-            console.log('in funk');
             var _URL = window.URL || window.webkitURL;
             var file, img;
             var f = document.getElementById('file').files[0];
             if ((file = f)) {
-                console.log(' in if state ');
                 img = new Image();
                 img.onload = function() {
-                    this.imgWid = this.width;
-                    this.imgHei = this.height;
-                    console.log(this.imgWid + " " + this.imgHei);
+                    wid = this.width;
+                    hei = this.height;
                 };
                 img.src = _URL.createObjectURL(file);
             }
@@ -82,7 +102,6 @@ var us = new Vue({
                 document.getElementById('showMoreBut').classList.add('hidden');
             }
         },
-
         valid: function(e){
             var nameInput = document.getElementById('name').value;
             var phoneInput = document.getElementById('phone').value;
@@ -92,16 +111,12 @@ var us = new Vue({
             var radioBtn = document.querySelectorAll("input[name=radio]");
             var checkedPosition = null;
 
-
             for(var i=0; i < radioBtn.length; i++){
                 if(radioBtn[i].checked){
                     checkedPosition = radioBtn[i].parentElement.id;
                     break;
                 }
             }
-
-
-
 
             if(!patternPhone.test(phoneInput) && !patternEmail.test(emailInput) && !fileInput){
                 this.isHiddenEmailError = false;
@@ -130,7 +145,7 @@ var us = new Vue({
             }else if(!fileInput ||
                 files.type !== "image/jpeg" ||
                 files.size > 5000000 ||
-                this.imgWid < 70 || this.imgHei < 70
+                wid < 70 || hei < 70
             ){
                 this.isHiddenFileError = false;
                 this.isHiddenEmailError = true;
@@ -140,11 +155,6 @@ var us = new Vue({
                 this.isErrorEmail = false;
                 e.preventDefault();
             }else{
-                console.log(this.imgWid + " " + this.imgHei);
-
-
-
-
                 var formData = {
                     'position_id': checkedPosition,
                     'name': nameInput,
@@ -154,27 +164,21 @@ var us = new Vue({
                 };
 
 
-                fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users',
-                    {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Token': this.token, // get token with GET api/v1/token method
-                        },
+                axios({
+                    method: 'post',
+                    url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
+                    data: formData,
+                    headers: { 'Token': this.token }
+                })
+                    .then(function (response) {
+                        //handle success
+                        console.log(response);
+                        showModalWin();
                     })
-                    .then(function(response) {
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        console.log(data);
-                        if(data.success) {
-                            // process success response
-                        } else {
-                            console.log(data);
-                        }
-                    }).catch(function(error) {
-                    console.log("Error while posting " + error);
-                });
+                    .catch(function (error) {
+                        console.log("Error while posting " + error);
+                    });
+
 
 
             }
@@ -183,3 +187,5 @@ var us = new Vue({
     },
 
 });
+
+

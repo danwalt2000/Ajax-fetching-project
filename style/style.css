@@ -5,7 +5,7 @@
   src: url("fonts/OpenSans-Regular.woff");
   src: url("fonts/OpenSans-Regular.woff2");
 }
-.site__container{  
+.site__container{
   width: 1024px;
   margin: auto;
 }
@@ -65,7 +65,7 @@ h1{
   padding-top: 50px;
 }
 
-.banner h1 {  
+.banner h1 {
   color: rgb(255, 255, 255);
   text-transform: uppercase;
   line-height: 51px;
@@ -73,11 +73,11 @@ h1{
   padding: 0px;
 }
 .banner h3 {
-    padding: 0px;
-    margin: 0px;
-    font-size: 16px;
-    color: rgb(255, 255, 255); 
-    font-weight: lighter;
+  padding: 0px;
+  margin: 0px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  font-weight: lighter;
 }
 
 
@@ -138,19 +138,19 @@ h1{
 }
 
 .cls-1 {
-   fill: #212529;      
+  fill: #212529;
 }
-     
-.cls-1, .cls-2, .cls-3 {        
-  fill-rule: evenodd;      
+
+.cls-1, .cls-2, .cls-3 {
+  fill-rule: evenodd;
 }
-      
-.cls-2 {        
-  fill: #1b4a8a;      
+
+.cls-2 {
+  fill: #1b4a8a;
 }
-      
-.cls-3 {        
-  fill: #fff;      
+
+.cls-3 {
+  fill: #fff;
 }
 
 .users{
@@ -275,7 +275,7 @@ h1{
   width: auto;
   text-align: left;
   vertical-align: middle;
- }
+}
 #radiotable input:checked {
   background-color: #2196F3;
 }
@@ -306,6 +306,9 @@ h1{
   position: absolute;
   opacity: 0;
   cursor: pointer;
+  height: 100px;
+  padding: .5rem 1rem;
+  line-height: 1.5;
 }
 
 
@@ -406,9 +409,6 @@ h1{
 }
 
 
-
-
-
 .file-custom:after {
   content: "Upload your photo";
   box-sizing: border-box;
@@ -426,5 +426,72 @@ footer{
   text-align: center;
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
 
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}

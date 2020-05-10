@@ -284,6 +284,27 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
           <h3>© abz.agency specially for the test task</h3>
       </footer>
   </main>
+
+  <button id="myBtn">Open Modal</button>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+          <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2>Congratulations</h2>
+          </div>
+          <div class="modal-body">
+              <p>You have successfully passed the registration</p>
+          </div>
+          <div class="modal-footer">
+              <button id="closeModalWin" class="red__button" ><a>Great</a></button>
+          </div>
+      </div>
+
+  </div>
   <script src="scripts/jQuery.js" type="text/javascript"></script>
   <script src="scripts/vue.js" ></script>
   <script src="scripts/axios.min.js" ></script>
