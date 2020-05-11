@@ -11,21 +11,21 @@ var span = document.getElementsByClassName("close")[0];
 var closeModalWin = document.getElementById('closeModalWin');
 var showModalWin = function() {
     modal.style.display = "block";
-}
+};
 
 span.onclick = function() {
     modal.style.display = "none";
-}
+};
 
 closeModalWin.onclick = function() {
     modal.style.display = "none";
-}
+};
 
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target === modal) {
         modal.style.display = "none";
     }
-}
+};
 
 
 
@@ -102,6 +102,34 @@ var us = new Vue({
                 document.getElementById('showMoreBut').classList.add('hidden');
             }
         },
+        posting: function(formData){
+            console.log(this.token);
+            fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Token': this.token, // get token with GET api/v1/token method
+                },
+            })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    console.log(data);
+                    if(data.success) {
+                        console.log(data);
+                        showModalWin();
+                        e.preventDefault();
+                    } else {
+                        console.log(data);
+                    }
+                })
+                .catch(function(error) {
+
+                    console.error("Error while posting ", error.message);
+                });
+
+        },
         valid: function(e){
             var nameInput = document.getElementById('name').value;
             var phoneInput = document.getElementById('phone').value;
@@ -155,29 +183,18 @@ var us = new Vue({
                 this.isErrorEmail = false;
                 e.preventDefault();
             }else{
-                var formData = {
-                    'position_id': checkedPosition,
-                    'name': nameInput,
-                    'email': emailInput,
-                    'phone': phoneInput,
-                    'photo': files,
-                };
+                var formData = new FormData();
+                formData.append('position_id', checkedPosition);
+                formData.append('name', nameInput);
+                formData.append('email', emailInput);
+                formData.append('phone', phoneInput);
+                formData.append('photo', files);
+
+                this.posting(formData);
 
 
-                axios({
-                    method: 'post',
-                    url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
-                    data: formData,
-                    headers: { 'Token': this.token }
-                })
-                    .then(function (response) {
-                        //handle success
-                        console.log(response);
-                        showModalWin();
-                    })
-                    .catch(function (error) {
-                        console.log("Error while posting " + error);
-                    });
+
+
 
 
 

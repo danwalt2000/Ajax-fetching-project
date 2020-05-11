@@ -20,7 +20,7 @@
       <ul>
         <li>About me</li>
         <li>Relationships</li>
-        <li>Requiremants</li>
+        <li>Requirements</li>
         <li>Users</li>
         <li>Sign Up</li>
       </ul>
@@ -28,19 +28,22 @@
   </header>
   <section class="banner">
     <div class="text__wrapper">
-        <h1>Test assignment
+        <div class="h1__wrap">
+          <h1>Test assignment
 for Frontend
 Developer position</h1>
-        <h3>We kindly remind you that your test assignment should be submitted
+        </div>
+        <div class="h3__wrap">
+          <h3>We kindly remind you that your test assignment should be submitted
 as a link to github/bitbucket repository. Please be patient, we consider
 and respond to every application that meets minimum requirements.
 We look forward to your submission. Good luck! The photo has to scale
 in the banner area on the different screens</h3>
+        </div>
     </div>
     <button class="red__button"><a>Sign up now</a></button>
   </section>
   <!-- end of banner -->
-      <br />
       <br />
       <br />
       <br />
@@ -284,10 +287,7 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
           <h3>© abz.agency specially for the test task</h3>
       </footer>
   </main>
-
-  <button id="myBtn">Open Modal</button>
-
-  <!-- The Modal -->
+   <!-- The Modal -->
   <div id="myModal" class="modal">
 
       <!-- Modal content -->
@@ -299,7 +299,7 @@ If 3rd party css/javascript libraries are added to the project via bower/npm/yar
           <div class="modal-body">
               <p>You have successfully passed the registration</p>
           </div>
-          <div class="modal-footer">
+          <div class="red__but__wrap">
               <button id="closeModalWin" class="red__button" ><a>Great</a></button>
           </div>
       </div>
