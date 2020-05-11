@@ -13,7 +13,10 @@
 body{
   font-family: "OpenSans", sans-serif;
 }
-
+a{
+  text-decoration: inherit;
+  color: inherit;
+}
 .header {
   display: flex;
   width: auto;
@@ -90,7 +93,6 @@ h1{
   white-space: pre;
 }
 
-
 .red__button{
   box-shadow: 0px 0px 0px transparent;
   border: 0px solid transparent;
@@ -113,8 +115,17 @@ h1{
   color: #ef5b4c;
   font-weight: bold;
 }
+.about__me{
+  margin: 145px auto 123px;
+}
 .about__me__wrapper{
   margin-top: 60px;
+}
+.svg__wrapper{
+  margin: 0;
+  padding: 0;
+  width: 33%;
+  padding-left: 55px;
 }
 
 .about__me__wrapper h1, .red__button a{
@@ -124,20 +135,19 @@ h1{
 
 .graphic__and__article{
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 .graphic__and__article svg{
-  width: 33%;
-  padding-left: 55px;
+  width: 100%;
 }
-.graphic__and__article svg, .graphic__and__article__text{
+.svg__wrapper, .graphic__and__article__text{
   display: inline-block;
   margin-top: 0;
   vertical-align: top;
 }
 
 .graphic__and__article__text{
-  width: 55%;
+  width: 56%;
   text-align: justify;
   font-size: 17px;
   float: right;
@@ -167,6 +177,7 @@ h1{
 
 .users{
   margin-top: 10px;
+  padding-top: 105px;
   background: #f9f9f3;
   height: auto;
   text-align: center;
@@ -199,11 +210,11 @@ h1{
   text-overflow: ellipsis;
 }
 .user__info h2{
-  margin: 0px;
+  margin: 0;
 }
 .user__info p{
   line-height: 24px;
-  margin: 0px;
+  margin: 0;
 }
 
 .user__photo{
@@ -214,7 +225,7 @@ h1{
   display: none;
 }
 #showMoreBut{
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 160px;
 }
 
@@ -524,4 +535,15 @@ footer{
   margin: 0;
   width: 100%;
   border-radius: 5px;
+}
+
+
+@media (max-width: 1050px){
+  .site__container{
+    width: 768px;
+  }
+  .banner{
+    background-position: center;
+  }
+
 }

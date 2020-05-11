@@ -1,0 +1,79 @@
+@media (max-width: 767px){
+
+    .site__container{
+        width: 360px;
+    }
+    .banner{
+        background-position: center;
+    }
+    nav{
+        display: none;
+    }
+    #logo{
+        margin: 3px 12px 10px;
+    }
+    .banner{
+        height: 400px;
+    }
+    .text__wrapper, .svg__wrapper svg, .h1__wrap, .graphic__and__article__text{
+        width: 100%;
+    }
+    .h1__wrap{
+        margin: 0;
+        padding-top: 65px;
+    }
+
+    .h1__wrap h1{
+        line-height: 35px;
+        text-align: center;
+        font-size: 30px;
+    }
+    .h3__wrap{
+        margin: 0 auto 20px auto;
+        width: 90%;
+        overflow: hidden;
+        height: 100px;
+    }
+    .h3__wrap h3{
+        white-space: normal;
+        text-align: center;
+    }
+    .red__but__wrap1{
+        width: 210px;
+        margin: 0 auto;
+    }
+    .red__button{
+        width: 210px;
+    }
+    .about__me{
+        margin: 20px 0 0 0;
+    }
+    .about__me h1{
+        text-align: center;
+        font-size: 30px;
+    }
+    .about__me__wrapper, .graphic__and__article, .red__button, .about__me h1, .text__wrapper, .svg__wrapper svg, .graphic__and__article__text, .users{
+        margin: 0;
+        padding: 0;
+    }
+
+    .svg__wrapper{
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        width: 90%;
+    }
+    .graphic__and__article__text{
+        display: block;
+    }
+    .graphic__and__article__text h3{
+        text-align: center;
+    }
+    .hide__in__mobile{
+        display: none;
+    }
+    .sign{
+        margin: 20px auto;
+        text-align: center;
+    }
+}
